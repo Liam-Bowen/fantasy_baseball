@@ -1,0 +1,56 @@
+<!-- templates/my_team.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>My Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/my_team.css') }}">
+</head>
+<body>
+  <div class="header">
+    <h1>My Team</h1>
+    <p>your name</p>
+    <p>0-0</p>
+      <div class="navbar">
+          <nav>
+            <a href="add-players" class="button">Add Players</a>
+            <a href="standings" class="button">Standings</a>
+            <a href="scoreboard" class="button">Scoreboard</a>
+            <a href="draft-room" class="button">Draft Room</a>
+        </nav>
+      </div>
+  </div>
+    <div class="batters">
+      <h2>Batters</h2>
+        <table width="100%">
+            <tr><td>Pos</td><td>Player Name</td><td>Team</td><td>G</td><td>AB</td><td>R</td><td>H</td><td>2B</td><td>3B</td><td>HR</td><td>RBI</td><td>SB</td><td>CS</td><td>BB</td><td>SO</td><td>HBP</td><td>SF</td><td>IBB</td></tr>
+            <tr><td>C</td><td>Yasmani Grandal</td><td>CHW</td><td>99</td><td>327</td><td>15</td><td>66</td><td>7</td><td>0</td><td>5</td><td>27</td><td>1</td><td>0</td><td>45</td><td>79</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td>1B</td><td>C.J. Cron</td><td>COL</td><td>150</td><td>575</td><td>79</td><td>148</td><td>28</td><td>3</td><td>29</td><td>102</td><td>0</td><td>0</td><td>43</td><td>164</td><td>8</td><td>5</td><td>6</td></tr>
+            <tr><td>2B</td><td>Jake Cronenworth</td><td>SDP</td><td>158</td><td>587</td><td>88</td><td>140</td><td>30</td><td>4</td><td>17</td><td>88</td><td>3</td><td>0</td><td>70</td><td>131</td><td>16</td><td>8</td><td>3</td></tr>
+            <tr><td>SS</td><td>Dansby Swanson</td><td>ATL</td><td>162</td><td>640</td><td>99</td><td>177</td><td>32</td><td>1</td><td>25</td><td>96</td><td>18</td><td>7</td><td>49</td><td>182</td><td>3</td><td>4</td><td>0</td></tr>
+            <tr><td>3B</td><td>Alec Bohm</td><td>PHI</td><td>152</td><td>586</td><td>79</td><td>164</td><td>24</td><td>3</td><td>13</td><td>72</td><td>2</td><td>3</td><td>31</td><td>110</td><td>4</td><td>10</td><td>1</td></tr>
+            <tr><td>LF</td><td>Anthony Santander</td><td>BAL</td><td>152</td><td>574</td><td>78</td><td>138</td><td>24</td><td>0</td><td>33</td><td>89</td><td>0</td><td>2</td><td>55</td><td>122</td><td>13</td><td>5</td><td>1</td></tr>
+            <tr><td>CF</td><td>Brandon Nimmo</td><td>NYM</td><td>151</td><td>580</td><td>102</td><td>159</td><td>30</td><td>7</td><td>16</td><td>64</td><td>3</td><td>2</td><td>71</td><td>116</td><td>16</td><td>3</td><td>0</td></tr>
+            <tr><td>RF</td><td>Daulton Varsho</td><td>ARI</td><td>151</td><td>531</td><td>79</td><td>125</td><td>23</td><td>3</td><td>27</td><td>74</td><td>16</td><td>6</td><td>46</td><td>145</td><td>7</td><td>5</td><td>0</td></tr>
+            <tr><td>DH</td><td>Shohei Ohtani</td><td>LAA</td><td>157</td><td>586</td><td>90</td><td>160</td><td>30</td><td>6</td><td>34</td><td>95</td><td>11</td><td>9</td><td>72</td><td>161</td><td>5</td><td>3</td><td>14</td></tr>
+        </table>
+  </div>
+    <div class="pitchers">
+        <h2>Pitchers</h2>
+            <table width="100%">
+                <tr><td>Pos</td><td>Player Name</td><td>Team</td><td>W</td><td>L</td><td>G</td><td>CG</td><td>SHO</td><td>SV</td><td>IP</td><td>H</td><td>R</td><td>ER</td><td>HR</td><td>BB</td><td>IBB</td><td>SO</td><td>HBP</td></tr>
+                <tr><td>SP</td><td>Framber Valdez</td><td>HOU</td><td>17</td><td>6</td><td>31</td><td>3</td><td>1</td><td>0</td><td>201.1</td><td>166</td><td>71</td><td>63</td><td>11</td><td>67</td><td>0</td><td>194</td><td>11</td></tr>
+                <tr><td>SP</td><td>Carlos Rodon</td><td>SFG</td><td>14</td><td>8</td><td>31</td><td>1</td><td>0</td><td>0</td><td>178.0</td><td>131</td><td>59</td><td>57</td><td>12</td><td>52</td><td>0</td><td>237</td><td>3</td></tr>
+                <tr><td>SP</td><td>Lucas Giolito</td><td>CHW</td><td>11</td><td>9</td><td>30</td><td>0</td><td>0</td><td>0</td><td>161.2</td><td>171</td><td>92</td><td>88</td><td>24</td><td>61</td><td>1</td><td>177</td><td>4</td></tr>
+                <tr><td>SP</td><td>Kevin Gausman</td><td>TOR</td><td>12</td><td>10</td><td>31</td><td>0</td><td>0</td><td>0</td><td>174.2</td><td>188</td><td>72</td><td>65</td><td>15</td><td>28</td><td>0</td><td>205</td><td>1</td></tr>
+                <tr><td>SP</td><td>Eric Lauer</td><td>MIL</td><td>11</td><td>7</td><td>29</td><td>0</td><td>0</td><td>0</td><td>158.2</td><td>135</td><td>71</td><td>65</td><td>27</td><td>59</td><td>0</td><td>157</td><td>2</td></tr>
+                <tr><td>CP</td><td>Edwin Diaz</td><td>NYM</td><td>3</td><td>1</td><td>61</td><td>0</td><td>0</td><td>32</td><td>62.0</td><td>34</td><td>9</td><td>9</td><td>3</td><td>18</td><td>1</td><td>118</td><td>2</td></tr>
+                <tr><td>CP</td><td>Liam Hendriks</td><td>CHW</td><td>4</td><td>4</td><td>58</td><td>0</td><td>0</td><td>37</td><td>57.2</td><td>44</td><td>22</td><td>18</td><td>7</td><td>16</td><td>1</td><td>85</td><td>2</td></tr>
+            </table>
+    </div>
+</body>
+</html>

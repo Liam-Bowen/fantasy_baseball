@@ -1,0 +1,64 @@
+*{
+box-sizing: border-box;
+}
+.body{
+padding: 0;
+font-family: "Helvetica Neue", Helvetica Arial, sans-serif;
+color: #444;
+}
+.header{
+background-color: deepskyblue;
+border-style: double;
+}
+.navbar{
+overflow: hidden;
+background-color: cyan;
+border-style: double;
+}
+.navbar a{
+display: block;
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
+.navbar a:hover{
+background-color: ghostwhite;
+color: black;
+}
+.rows:after{
+content: "";
+display: table;
+clear: both;
+}
+.column{
+float: left;
+text-align: center;
+width: 50%;
+border: solid;
+padding: 10px;
+}
+h2{
+text-decoration: underline;
+}
+h3{
+font-size: 25px;
+}
+.players{
+display: inline-grid;
+grid-template-columns: auto auto;
+height: 99vh;
+width: 50vw;
+}
+@media screen and (max-width: 700px) {
+  row {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  navbar a {
+    float: none;
+    width: 100%;
+  }
+}

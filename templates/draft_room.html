@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Draft Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/draft_room.css') }}">
+</head>
+<body>
+    <script src="static/js/draft_room.js"></script>
+    <div class="header">
+        <h1>Draft Room</h1>
+    </div>
+    <div class="navbar">
+        <a href="my-team" class="button">My Team</a>
+        <a href="add-players" class="button">Add Players</a>
+        <a href="standings" class="button">Standings</a>
+        <a href="scoreboard" class="button">Scoreboard</a>
+    </div>
+    <div class="wrapper">
+        <div class="table">
+                <div class="my_team">
+                    <h2>My Team</h2>
+                    <div class="grid-container">
+                        <div class="item">C</div>
+                        <div class="item">---</div>
+                        <div class="item">1B</div>
+                        <div class="item">---</div>
+                        <div class="item">2B</div>
+                        <div class="item">---</div>
+                        <div class="item">3B</div>
+                        <div class="item">---</div>
+                        <div class="item">SS</div>
+                        <div class="item">---</div>
+                        <div class="item">LF</div>
+                        <div class="item">---</div>
+                        <div class="item">CF</div>
+                        <div class="item">---</div>
+                        <div class="item">RF</div>
+                        <div class="item">---</div>
+                        <div class="item">DH</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">Shohei Ohtani</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                        <div class="item">P</div>
+                        <div class="item">---</div>
+                    </div>
+                </div>
+            <div class="available">
+                <h2>Available Players</h2>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="drop">Batters</button>
+                    <div id="myDropdown" class="dropdown-event">
+                        <button onclick="pitchers()">Pitchers</button>
+                        <button onclick="batters()">Batters</button>
+                    </div>
+                </div>
+                <div id="pitchers" class="pitchers">
+                    <form method="POST">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Player Name</th>
+                                    <th>Team</th>
+                                    <th>League</th>
+                                    <th>Games</th>
+                                    <th>AB</th>
+                                    <th>R</th>
+                                    <th>H</th>
+                                    <th>2B</th>
+                                    <th>3B</th>
+                                    <th>HR</th>
+                                    <th>RBI</th>
+                                    <th>SB</th>
+                                    <th>CS</th>
+                                    <th>BB</th>
+                                    <th>SO</th>
+                                    <th>HBP</th>
+                                    <th>SF</th>
+                                    <th>IBB</th>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for player in playerList %}
+                                <tr>
+                                    <td>{{player.name}}</td>
+                                    <td>{{player.team}}</td>
+                                    <td>{{player.league}}</td>
+                                    <td>{{player.games}}</td>
+                                    <td>{{player.at_bat}}</td>
+                                    <td>{{player.runs}}</td>
+                                    <td>{{player.hits}}</td>
+                                    <td>{{player.doubles}}</td>
+                                    <td>{{player.triples}}</td>
+                                    <td>{{player.HR}}</td>
+                                    <td>{{player.RBI}}</td>
+                                    <td>{{player.SB}}</td>
+                                    <td>{{player.CS}}</td>
+                                    <td>{{player.BB}}</td>
+                                    <td>{{player.SO}}</td>
+                                    <td>{{player.HBP}}</td>
+                                    <td>{{player.SF}}</td>
+                                    <td>{{player.IBB}}</td>
+                                    <td><button type="submit" disabled="true">Add Player</button></td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </form>
+                </div>
+                <div id="batters" class="batters">
+                    <table width="100%">
+                        <tr><td>Rank</td><td>Player Name</td><td>Team</td><td>G</td><td>AB</td><td>R</td><td>H</td><td>2B</td><td>3B</td><td>HR</td><td>RBI</td><td>SB</td><td>CS</td><td>BB</td><td>SO</td><td>HBP</td><td>SF</td><td>IBB</td><td>Add Players</td></tr>
+                        <tr><td>1</td><td>Matt Olson</td><td>ATL</td><td>162</td><td>616</td><td>86</td><td>148</td><td>44</td><td>0</td><td>34</td><td>103</td><td>0</td><td>0</td><td>75</td><td>170</td><td>4</td><td>4</td><td>6</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>2</td><td>Dansby Swanson</td><td>ATL</td><td>162</td><td>640</td><td>99</td><td>177</td><td>32</td><td>1</td><td>25</td><td>96</td><td>18</td><td>7</td><td>49</td><td>182</td><td>3</td><td>4</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>3</td><td>Francisco Lindor</td><td>NYM</td><td>161</td><td>630</td><td>98</td><td>170</td><td>25</td><td>5</td><td>26</td><td>107</td><td>16</td><td>6</td><td>59</td><td>133</td><td>10</td><td>7</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>4</td><td>Marcus Semien</td><td>TEX</td><td>161</td><td>657</td><td>101</td><td>163</td><td>31</td><td>5</td><td>26</td><td>83</td><td>25</td><td>8</td><td>53</td><td>120</td><td>4</td><td>10</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>5</td><td>Pete Alonso</td><td>NYM</td><td>160</td><td>597</td><td>95</td><td>162</td><td>27</td><td>0</td><td>40</td><td>131</td><td>5</td><td>1</td><td>67</td><td>128</td><td>12</td><td>9</td><td>16</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>7</td><td>Trea Turner</td><td>LAD</td><td>160</td><td>652</td><td>101</td><td>194</td><td>39</td><td>4</td><td>21</td><td>100</td><td>27</td><td>3</td><td>45</td><td>131</td><td>3</td><td>6</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>8</td><td>Christian Walker</td><td>ARI</td><td>160</td><td>583</td><td>84</td><td>141</td><td>25</td><td>2</td><td>36</td><td>94</td><td>2</td><td>2</td><td>69</td><td>131</td><td>8</td><td>7</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>9</td><td>Bo Bichette</td><td>TOR</td><td>159</td><td>652</td><td>91</td><td>189</td><td>43</td><td>1</td><td>24</td><td>93</td><td>13</td><td>8</td><td>41</td><td>155</td><td>2</td><td>2</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>11</td><td>Austin Riley</td><td>ATL</td><td>159</td><td>615</td><td>90</td><td>168</td><td>39</td><td>2</td><td>38</td><td>93</td><td>2</td><td>0</td><td>57</td><td>168</td><td>17</td><td>4</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>12</td><td>Jake Cronenworth</td><td>SDP</td><td>158</td><td>587</td><td>88</td><td>140</td><td>30</td><td>4</td><td>17</td><td>88</td><td>3</td><td>0</td><td>70</td><td>131</td><td>16</td><td>8</td><td>3</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>13</td><td>Ian Happ</td><td>CHC</td><td>158</td><td>573</td><td>72</td><td>155</td><td>42</td><td>2</td><td>17</td><td>72</td><td>9</td><td>4</td><td>58</td><td>149</td><td>6</td><td>4</td><td>4</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>14</td><td>José Abreu</td><td>CHW</td><td>157</td><td>601</td><td>85</td><td>183</td><td>40</td><td>0</td><td>15</td><td>75</td><td>0</td><td>0</td><td>62</td><td>110</td><td>12</td><td>4</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>16</td><td>Nathaniel Lowe</td><td>TEX</td><td>157</td><td>593</td><td>74</td><td>179</td><td>26</td><td>3</td><td>27</td><td>76</td><td>2</td><td>2</td><td>48</td><td>147</td><td>4</td><td>0</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>19</td><td>Josh Bell</td><td>TOT</td><td>156</td><td>552</td><td>78</td><td>147</td><td>29</td><td>3</td><td>17</td><td>71</td><td>0</td><td>1</td><td>81</td><td>102</td><td>5</td><td>6</td><td>4</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>20</td><td>Adam Frazier</td><td>SEA</td><td>156</td><td>541</td><td>61</td><td>129</td><td>22</td><td>4</td><td>3</td><td>42</td><td>11</td><td>6</td><td>46</td><td>73</td><td>5</td><td>6</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>21</td><td>Adolis García</td><td>TEX</td><td>156</td><td>605</td><td>88</td><td>151</td><td>34</td><td>5</td><td>27</td><td>101</td><td>25</td><td>6</td><td>40</td><td>183</td><td>6</td><td>6</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>22</td><td>Rhys Hoskins</td><td>PHI</td><td>156</td><td>589</td><td>81</td><td>145</td><td>33</td><td>2</td><td>30</td><td>79</td><td>2</td><td>1</td><td>72</td><td>169</td><td>6</td><td>4</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>23</td><td>Cedric Mullins</td><td>BAL</td><td>156</td><td>608</td><td>89</td><td>157</td><td>32</td><td>4</td><td>16</td><td>64</td><td>34</td><td>10</td><td>47</td><td>126</td><td>9</td><td>5</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>24</td><td>Alex Bregman</td><td>HOU</td><td>155</td><td>548</td><td>93</td><td>142</td><td>38</td><td>0</td><td>23</td><td>93</td><td>1</td><td>2</td><td>87</td><td>77</td><td>11</td><td>10</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>25</td><td>Matt Chapman</td><td>TOR</td><td>155</td><td>538</td><td>83</td><td>123</td><td>27</td><td>1</td><td>27</td><td>76</td><td>2</td><td>2</td><td>68</td><td>170</td><td>10</td><td>5</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>26</td><td>Kyle Schwarber</td><td>PHI</td><td>155</td><td>577</td><td>100</td><td>126</td><td>21</td><td>3</td><td>46</td><td>94</td><td>10</td><td>1</td><td>86</td><td>200</td><td>4</td><td>2</td><td>3</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>27</td><td>Christian Yelich</td><td>MIL</td><td>154</td><td>575</td><td>99</td><td>145</td><td>25</td><td>4</td><td>14</td><td>57</td><td>19</td><td>3</td><td>88</td><td>162</td><td>5</td><td>2</td><td>5</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>28</td><td>Randy Arozarena</td><td>TBR</td><td>153</td><td>586</td><td>72</td><td>154</td><td>41</td><td>3</td><td>20</td><td>89</td><td>32</td><td>12</td><td>46</td><td>156</td><td>11</td><td>2</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>29</td><td>Tommy Edman</td><td>STL</td><td>153</td><td>577</td><td>95</td><td>153</td><td>31</td><td>4</td><td>13</td><td>57</td><td>32</td><td>3</td><td>46</td><td>111</td><td>5</td><td>1</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>30</td><td>Ryan McMahon</td><td>COL</td><td>153</td><td>529</td><td>67</td><td>130</td><td>23</td><td>3</td><td>20</td><td>67</td><td>7</td><td>3</td><td>60</td><td>158</td><td>5</td><td>3</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>31</td><td>Amed Rosario</td><td>CLE</td><td>153</td><td>637</td><td>86</td><td>180</td><td>26</td><td>9</td><td>11</td><td>71</td><td>18</td><td>4</td><td>25</td><td>111</td><td>4</td><td>4</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>33</td><td>Rowdy Tellez</td><td>MIL</td><td>153</td><td>529</td><td>67</td><td>116</td><td>23</td><td>0</td><td>35</td><td>89</td><td>2</td><td>1</td><td>62</td><td>121</td><td>5</td><td>3</td><td>9</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>34</td><td>Alec Bohm</td><td>PHI</td><td>152</td><td>586</td><td>79</td><td>164</td><td>24</td><td>3</td><td>13</td><td>72</td><td>2</td><td>3</td><td>31</td><td>110</td><td>4</td><td>10</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>35</td><td>Trent Grisham</td><td>SDP</td><td>152</td><td>451</td><td>58</td><td>83</td><td>16</td><td>2</td><td>17</td><td>53</td><td>7</td><td>1</td><td>57</td><td>150</td><td>7</td><td>2</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>36</td><td>Jurickson Profar</td><td>SDP</td><td>152</td><td>575</td><td>82</td><td>140</td><td>36</td><td>2</td><td>15</td><td>58</td><td>5</td><td>1</td><td>73</td><td>103</td><td>4</td><td>3</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>37</td><td>Anthony Santander</td><td>BAL</td><td>152</td><td>574</td><td>78</td><td>138</td><td>24</td><td>0</td><td>33</td><td>89</td><td>0</td><td>2</td><td>55</td><td>122</td><td>13</td><td>5</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>38</td><td>Myles Straw</td><td>CLE</td><td>152</td><td>535</td><td>72</td><td>118</td><td>22</td><td>3</td><td>0</td><td>32</td><td>21</td><td>1</td><td>54</td><td>87</td><td>1</td><td>4</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>39</td><td>Alex Verdugo</td><td>BOS</td><td>152</td><td>593</td><td>75</td><td>166</td><td>39</td><td>1</td><td>11</td><td>74</td><td>1</td><td>3</td><td>42</td><td>86</td><td>3</td><td>6</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>40</td><td>Wilmer Flores</td><td>SFG</td><td>151</td><td>525</td><td>72</td><td>120</td><td>28</td><td>1</td><td>19</td><td>71</td><td>0</td><td>0</td><td>59</td><td>103</td><td>11</td><td>7</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>41</td><td>Paul Goldschmidt</td><td>STL</td><td>151</td><td>561</td><td>106</td><td>178</td><td>41</td><td>0</td><td>35</td><td>115</td><td>7</td><td>0</td><td>79</td><td>141</td><td>5</td><td>4</td><td>1</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>42</td><td>Brandon Nimmo</td><td>NYM</td><td>151</td><td>580</td><td>102</td><td>159</td><td>30</td><td>7</td><td>16</td><td>64</td><td>3</td><td>2</td><td>71</td><td>116</td><td>16</td><td>3</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>43</td><td>Corey Seager</td><td>TEX</td><td>151</td><td>593</td><td>91</td><td>145</td><td>24</td><td>1</td><td>33</td><td>83</td><td>3</td><td>0</td><td>58</td><td>103</td><td>7</td><td>5</td><td>7</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>44</td><td>Daulton Varsho</td><td>ARI</td><td>151</td><td>531</td><td>79</td><td>125</td><td>23</td><td>3</td><td>27</td><td>74</td><td>16</td><td>6</td><td>46</td><td>145</td><td>7</td><td>5</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>45</td><td>Xander Bogaerts</td><td>BOS</td><td>150</td><td>557</td><td>84</td><td>171</td><td>38</td><td>0</td><td>15</td><td>73</td><td>8</td><td>2</td><td>57</td><td>118</td><td>10</td><td>7</td><td>2</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>46</td><td>Seth Brown</td><td>OAK</td><td>150</td><td>500</td><td>55</td><td>115</td><td>26</td><td>3</td><td>25</td><td>73</td><td>11</td><td>2</td><td>51</td><td>146</td><td>3</td><td>1</td><td>3</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>47</td><td>C.J. Cron</td><td>COL</td><td>150</td><td>575</td><td>79</td><td>148</td><td>28</td><td>3</td><td>29</td><td>102</td><td>0</td><td>0</td><td>43</td><td>164</td><td>8</td><td>5</td><td>6</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>48</td><td>Ha-Seong Kim</td><td>SDP</td><td>150</td><td>517</td><td>58</td><td>130</td><td>29</td><td>3</td><td>11</td><td>59</td><td>12</td><td>2</td><td>51</td><td>100</td><td>7</td><td>4</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>49</td><td>Manny Machado</td><td>SDP</td><td>150</td><td>578</td><td>100</td><td>172</td><td>37</td><td>1</td><td>32</td><td>102</td><td>9</td><td>1</td><td>63</td><td>133</td><td>1</td><td>2</td><td>10</td><td><button type="submit">Add Player</button></td></tr>
+                        <tr><td>50</td><td>Jorge Mateo</td><td>BAL</td><td>150</td><td>494</td><td>63</td><td>109</td><td>25</td><td>7</td><td>13</td><td>50</td><td>35</td><td>9</td><td>27</td><td>147</td><td>5</td><td>2</td><td>0</td><td><button type="submit">Add Player</button></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="recent">
+                <h2>Recent Picks</h2>
+                <table width="100%">
+                    <tr><td>Pick 1</td><td>Shohei Ohtani</td></tr>
+                    <tr><td>Pick 2</td><td>Juan Soto</td></tr>
+                    <tr><td>Pick 3</td><td>Vladimir Guerrero Jr.</td></tr>
+                    <tr><td>Pick 4</td><td>Aaron Judge</td></tr>
+                    <tr><td>Pick 5</td><td>Mike Trout</td></tr>
+                    <tr><td>Pick 6</td><td>Corbin Burnes</td></tr>
+                    <tr><td>Pick 7</td><td>Jose Ramirez</td></tr>
+                    <tr><td>Pick 8</td><td>Bryce Harper</td></tr>
+                    <tr><td>Pick 9</td><td>Max Scherzer</td></tr>
+                    <tr><td>Pick 10</td><td>Freddie Freeman</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

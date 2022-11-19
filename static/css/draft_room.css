@@ -1,0 +1,116 @@
+*{
+box-sizing: border-box;
+}
+.body{
+padding: 0;
+font-family: "Helvetica Neue", Helvetica Arial, sans-serif;
+color: #444;
+}
+.header{
+background-color: deepskyblue;
+border-style: double;
+}
+.navbar{
+overflow: hidden;
+background-color: cyan;
+border-style: double;
+}
+.navbar a{
+display: block;
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
+.navbar a:hover{
+background-color: ghostwhite;
+color: black;
+}
+.grid-container{
+display: inline-grid;
+grid-template-columns: auto 100px;
+}
+.item{
+border: solid;
+padding: 15px;
+}
+.wrapper{
+display: table;
+width: 100%
+}
+.table{
+display: table-row;
+}
+.my_team{
+float: left;
+width: 20%;
+border: solid;
+}
+.available{
+float: left;
+width: 60%;
+border: solid;
+padding: 10px;
+}
+.recent{
+float: left;
+width: 20%;
+border: solid;
+}
+table, tr, td{
+border-color: blue;
+border-style: solid;
+border-collapse: collapse;
+}
+.drop{
+background-color: deepskyblue;
+color: black;
+padding: 10px;
+font-size: 20px;
+border: solid;
+cursor: pointer;
+}
+.drop:hover, .drop:focus{
+background-color: deepskyblue;
+}
+.dropdown{
+position: relative;
+display: inline-block;
+padding: 10px;
+}
+.dropdown-event{
+display: none;
+position: absolute;
+background-color: gray;
+min-width: 95px;
+border: solid;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+.dropdown-event a{
+color: black;
+padding: 12px;
+text-decoration: none;
+display: block;
+}
+.show{
+display: block;
+}
+#pitchers{
+display: block;
+}
+#batters{
+display: none;
+}
+@media screen and (max-width: 700px) {
+  row {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  navbar a {
+    float: none;
+    width: 100%;
+  }
+}
