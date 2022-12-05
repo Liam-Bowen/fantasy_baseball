@@ -58,7 +58,7 @@ float: left;
 width: 20%;
 border: solid;
 }
-table, tr, td{
+table, tr, td, th{
 border-color: blue;
 border-style: solid;
 border-collapse: collapse;
