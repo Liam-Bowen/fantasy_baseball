@@ -10,3 +10,44 @@ color: #444;
 background-color: deepskyblue;
 border-style: double;
 }
+.navbar{
+overflow: hidden;
+background-color: cyan;
+border-style: double;
+}
+.navbar a{
+display: block;
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
+.navbar a:hover{
+background-color: ghostwhite;
+color: black;
+}
+button{
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+border: none;
+background-color: cyan;
+}
+button:hover{
+background-color: ghostwhite;
+color: black;
+}
+@media screen and (max-width: 700px) {
+  row {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  navbar a {
+    float: none;
+    width: 100%;
+  }
+}

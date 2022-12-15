@@ -11,19 +11,22 @@
 </head>
 <body>
     <div class="header">
-        <h1>Welcome</h1>
+        <h1>Welcome!</h1>
     </div>
     <div class="navbar">
-        <a href="my-team" class="button">My Team</a>
-        <a href="add-players" class="button">Add Players</a>
-        <a href="standings" class="button">Standings</a>
-        <a href="scoreboard" class="button">Scoreboard</a>
         <a href="draft-room" class="button">Draft Room</a>
+        <a href="my-team" class="button">My Team</a>
+        <a href="compare-teams" class="button">Compare Teams</a>
         <a href="points-breakdown" class="button">Scoring Breakdown</a>
         <a href="login" class="button">Login</a>
         <form action="{{ url_for('handle_logout') }}" method="post">
                 <button onclick="logout" class="button" type="submit">Logout</button>
         </form>
     </div>
+    <p>Hello and welcome to my fantasy baseball site. Hopefully you can learn a bit about how to draft a team better.
+        You can use the draft room to analyze and sort player data however you please. From your teams page,
+        you can remove players from the roster you configured if you dislike what you have.
+        The Compare Teams page allows you to look at your team side by side to analyze how strong your roster looks
+        compared to someone else's. Go to the draft room to get started and select players for your team.</p>
 </body>
 </html>

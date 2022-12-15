@@ -20,7 +20,9 @@
         <a href="draft-room" class="button">Draft Room</a>
         <a href="points-breakdown" class="button">Scoring Breakdown</a>
         <a href="login" class="button">Login</a>
-        <a href="logout" class="button">Logout</a>
+        <form action="{{ url_for('handle_logout') }}" method="post">
+                <button onclick="logout" class="button" type="submit">Logout</button>
+        </form>
     </div>
     <div class="north">
         <div class="titles">

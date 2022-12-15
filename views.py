@@ -39,7 +39,7 @@ def standings():
 
 @app.route('/scoreboard')
 def scoreboard():
-    return render_template('scoreboard.html')
+    return render_template('comparison.html')
 
 
 @app.route('/add-players')

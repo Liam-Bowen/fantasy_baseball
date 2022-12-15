@@ -29,7 +29,8 @@ class Batters(Base):
     hbp = Column(Integer)
     sf = Column(Integer)
     ibb = Column(Integer)
-    available = Column(Boolean, nullable=False, default=True)
+    roster_id = Column(String(256))
+    pos = Column(String(256))
 
 
 class Pitchers(Base):
@@ -52,7 +53,8 @@ class Pitchers(Base):
     ibb = Column(Integer)
     so = Column(Integer)
     hbp = Column(Integer)
-    available = Column(Boolean, nullable=False, default=True)
+    roster_id = Column(String(256))
+    pos = Column(String(256))
 
 
 def blankIfNone(str):
@@ -83,6 +85,7 @@ def combineBatterEntries(entryList):
     player.hbp = sum([entry['hbp'] for entry in entryList])
     player.sf = sum([entry['sf'] for entry in entryList])
     player.ibb = sum([entry['ibb'] for entry in entryList])
+    player.pos = "|".join([entry['pos'] for entry in entryList])
     return player
 
 
@@ -107,6 +110,7 @@ def combinePitcherEntries(entryList):
     player.ibb = sum([entry['ibb'] for entry in entryList])
     player.so = sum([entry['so'] for entry in entryList])
     player.hbp = sum([entry['hbp'] for entry in entryList])
+    player.pos = "|".join([entry['pos'] for entry in entryList])
     return player
 
 
@@ -124,7 +128,8 @@ def load_batters(db_session, file_name='static/csv/updated-batters.csv'):
                          "ab": int(row[4]), "r": int(row[5]), "h": int(row[6]), "db": int(row[7]),
                          "tp": int(row[8]), "hr": int(row[9]), "rbi": int(row[10]),
                          "sb": int(row[11]), "cs": int(row[12]), "bb": int(row[13]),
-                         "so": int(row[14]), "hbp": int(row[15]), "sf": int(row[16]), "ibb": int(row[17])}
+                         "so": int(row[14]), "hbp": int(row[15]), "sf": int(row[16]), "ibb": int(row[17]),
+                         "pos": row[19]}
                 if entry['id'] not in player_entries:
                     player_entries[entry['id']] = []
                 player_entries[entry['id']].append(entry)
@@ -152,7 +157,7 @@ def load_pitchers(db_session, file_name='static/csv/updated-pitchers.csv'):
                          "l": int(row[4]), "g": int(row[5]), "cg": int(row[6]), "sho": int(row[7]),
                          "sv": int(row[8]), "ip": float(row[9]), "h": int(row[10]),
                          "er": int(row[11]), "hr": int(row[12]), "bb": int(row[13]),
-                         "ibb": int(row[14]), "so": int(row[15]), "hbp": int(row[16])}
+                         "ibb": int(row[14]), "so": int(row[15]), "hbp": int(row[16]), "pos": row[18]}
                 if entry['id'] not in player_entries:
                     player_entries[entry['id']] = []
                 player_entries[entry['id']].append(entry)
@@ -171,5 +176,5 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        load_batters(session)
-        #load_pitchers(session)
+        #load_batters(session)
+        load_pitchers(session)

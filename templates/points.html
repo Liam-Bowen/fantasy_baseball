@@ -13,6 +13,17 @@
     <div class="header">
         <h1>Points Breakdown</h1>
     </div>
+    <div class="navbar">
+          <nav>
+              <a href="draft-room" class="button">Draft Room</a>
+              <a href="compare-teams" class="button">Compare Teams</a>
+              <a href="points-breakdown" class="button">Scoring Breakdown</a>
+              <a href="login" class="button">Login</a>
+              <form action="{{ url_for('handle_logout') }}" method="post">
+                  <button onclick="logout" class="button" type="submit">Logout</button>
+              </form>
+          </nav>
+      </div>
     <div class="Pitchers">
         <h2>Pitchers</h2>
         <p>W = +5</p>
@@ -44,7 +55,6 @@
         <p>BB = +1</p>
         <p>SO = -1</p>
         <p>HBP = +1</p>
-        <p>SF = +1</p>
         <p>IBB = +1</p>
     </div>
 </body>

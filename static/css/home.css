@@ -27,6 +27,19 @@ text-decoration: none;
 background-color: ghostwhite;
 color: black;
 }
+button{
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+border: none;
+background-color: cyan;
+}
+.button:hover{
+background-color: ghostwhite;
+color: black;
+}
 @media screen and (max-width: 700px) {
   row {
     flex-direction: column;

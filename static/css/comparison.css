@@ -51,6 +51,25 @@ grid-template-columns: auto auto;
 height: 99vh;
 width: 50vw;
 }
+button{
+float: left;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+border: none;
+background-color: cyan;
+}
+button:hover{
+background-color: ghostwhite;
+color: black;
+}
+table, tr, td, th{
+border-color: blue;
+border-style: solid;
+border-collapse: collapse;
+text-align: center;
+}
 @media screen and (max-width: 700px) {
   row {
     flex-direction: column;

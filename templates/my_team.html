@@ -17,33 +17,24 @@
     <p>0-0</p>
       <div class="navbar">
           <nav>
-            <a href="add-players" class="button">Add Players</a>
-            <a href="standings" class="button">Standings</a>
-            <a href="scoreboard" class="button">Scoreboard</a>
-            <a href="draft-room" class="button">Draft Room</a>
-            <a href="points-breakdown" class="button">Scoring Breakdown</a>
-            <a href="login" class="button">Login</a>
-            <a href="logout" class="button">Logout</a>
+              <a href="draft-room" class="button">Draft Room</a>
+              <a href="compare-teams" class="button">Compare Teams</a>
+              <a href="points-breakdown" class="button">Scoring Breakdown</a>
+              <a href="login" class="button">Login</a>
+              <form action="{{ url_for('handle_logout') }}" method="post">
+                  <button onclick="logout" class="button" type="submit">Logout</button>
+              </form>
           </nav>
       </div>
   </div>
     <div class="batters">
       <h2>Batters</h2>
-        <table width="100%">
-        </table>
+        <table id="batter-table" width="100%"></table>
   </div>
-    <div class="pitchers">
-        <h2>Pitchers</h2>
-            <table width="100%">
-                <tr><td>Pos</td><td>Player Name</td><td>Team</td><td>W</td><td>L</td><td>G</td><td>CG</td><td>SHO</td><td>SV</td><td>IP</td><td>H</td><td>R</td><td>ER</td><td>HR</td><td>BB</td><td>IBB</td><td>SO</td><td>HBP</td></tr>
-                <tr><td>SP</td><td>Framber Valdez</td><td>HOU</td><td>17</td><td>6</td><td>31</td><td>3</td><td>1</td><td>0</td><td>201.1</td><td>166</td><td>71</td><td>63</td><td>11</td><td>67</td><td>0</td><td>194</td><td>11</td></tr>
-                <tr><td>SP</td><td>Carlos Rodon</td><td>SFG</td><td>14</td><td>8</td><td>31</td><td>1</td><td>0</td><td>0</td><td>178.0</td><td>131</td><td>59</td><td>57</td><td>12</td><td>52</td><td>0</td><td>237</td><td>3</td></tr>
-                <tr><td>SP</td><td>Lucas Giolito</td><td>CHW</td><td>11</td><td>9</td><td>30</td><td>0</td><td>0</td><td>0</td><td>161.2</td><td>171</td><td>92</td><td>88</td><td>24</td><td>61</td><td>1</td><td>177</td><td>4</td></tr>
-                <tr><td>SP</td><td>Kevin Gausman</td><td>TOR</td><td>12</td><td>10</td><td>31</td><td>0</td><td>0</td><td>0</td><td>174.2</td><td>188</td><td>72</td><td>65</td><td>15</td><td>28</td><td>0</td><td>205</td><td>1</td></tr>
-                <tr><td>SP</td><td>Eric Lauer</td><td>MIL</td><td>11</td><td>7</td><td>29</td><td>0</td><td>0</td><td>0</td><td>158.2</td><td>135</td><td>71</td><td>65</td><td>27</td><td>59</td><td>0</td><td>157</td><td>2</td></tr>
-                <tr><td>CP</td><td>Edwin Diaz</td><td>NYM</td><td>3</td><td>1</td><td>61</td><td>0</td><td>0</td><td>32</td><td>62.0</td><td>34</td><td>9</td><td>9</td><td>3</td><td>18</td><td>1</td><td>118</td><td>2</td></tr>
-                <tr><td>CP</td><td>Liam Hendriks</td><td>CHW</td><td>4</td><td>4</td><td>58</td><td>0</td><td>0</td><td>37</td><td>57.2</td><td>44</td><td>22</td><td>18</td><td>7</td><td>16</td><td>1</td><td>85</td><td>2</td></tr>
-            </table>
-    </div>
+  <div class="pitchers">
+      <h2>Pitchers</h2>
+        <table id="pitcher-table" width="100%"></table>
+  </div>
+<script src="static/js/my_team.js"></script>
 </body>
 </html>

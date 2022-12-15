@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comparison.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Scoreboard</h1>
+    </div>
+    <div class="navbar">
+        <a href="draft-room" class="button">Draft Room</a>
+        <a href="my-team" class="button">My Team</a>
+        <a href="points-breakdown" class="button">Scoring Breakdown</a>
+        <a href="login" class="button">Login</a>
+        <form action="{{ url_for('handle_logout') }}" method="post">
+                <button onclick="logout" class="button" type="submit">Logout</button>
+        </form>
+    </div>
+    <div class="rows">
+        <div class="column">
+            <h2>Team 1</h2>
+            <div class="batters">
+                <h2>Batters</h2>
+                <table id="batter-table" width="100%"></table>
+            </div>
+            <div class="pitchers">
+                <h2>Pitchers</h2>
+                <table id="pitcher-table" width="100%"></table>
+            </div>
+        </div>
+        <div class="column">
+            <label for="team-select">Team: </label>
+            <select id="team-select" value="--none--">
+                <option value="--none--">-- Select team to compare --</option>
+            </select>
+            <div class="batters">
+                <h2>Batters</h2>
+                <table id="batter-table2" width="100%"></table>
+            </div>
+            <div class="pitchers">
+                <h2>Pitchers</h2>
+                <table id="pitcher-table2" width="100%"></table>
+            </div>
+        </div>
+    </div>
+    <script src="static/js/comparison.js"></script>
+</body>
+</html>

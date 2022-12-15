@@ -14,10 +14,13 @@
     <h1>Add Players</h1>
   </div>
   <div class="navbar">
-    <a href="my-team" class="button">My Team</a>
-    <a href="standings" class="button">Standings</a>
-    <a href="scoreboard" class="button">Scoreboard</a>
-    <a href="draft-room" class="button">Draft Room</a>
+      <a href="my-team" class="button">My Team</a>
+      <a href="compare-teams" class="button">Compare Teams</a>
+      <a href="draft-room" class="button">Draft Room</a>
+      <a href="login" class="button">Login</a>
+      <form action="{{ url_for('handle_logout') }}" method="post">
+                <button onclick="logout" class="button" type="submit">Logout</button>
+      </form>
   </div>
   <div class="body">
     <div class="dropdown">

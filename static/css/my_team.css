@@ -47,10 +47,23 @@ border: solid;
 text-align: Left;
 padding: 20px;
 }
-table, tr, td{
+table, tr, td, th{
 border-color: blue;
 border-style: solid;
 border-collapse: collapse;
+}
+button{
+float: center;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+border: none;
+background-color: white;
+}
+button:hover{
+background-color: cyan;
+color: black;
 }
 @media screen and (max-width: 700px) {
   row {

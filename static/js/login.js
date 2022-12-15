@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
     });
 
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
+    //loginForm.addEventListener("submit", e => {
+        //e.preventDefault();
 
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
-    });
+        //setFormMessage(loginForm, "error", "Invalid username/password combination");
+    //});
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {

@@ -15,53 +15,24 @@
     </div>
     <div class="navbar">
         <a href="my-team" class="button">My Team</a>
-        <a href="add-players" class="button">Add Players</a>
-        <a href="standings" class="button">Standings</a>
-        <a href="scoreboard" class="button">Scoreboard</a>
+        <a href="compare-teams" class="button">Compare Teams</a>
+        <a href="login" class="button">Login</a>
+        <form action="{{ url_for('handle_logout') }}" method="post">
+                <button onclick="logout" class="button" type="submit">Logout</button>
+        </form>
     </div>
     <div class="wrapper">
-        <div class="table">
                 <div class="my_team">
                     <h2>My Team</h2>
-                    <div class="grid-container">
-                        <div class="item">C</div>
-                        <div class="item">---</div>
-                        <div class="item">1B</div>
-                        <div class="item">---</div>
-                        <div class="item">2B</div>
-                        <div class="item">---</div>
-                        <div class="item">3B</div>
-                        <div class="item">---</div>
-                        <div class="item">SS</div>
-                        <div class="item">---</div>
-                        <div class="item">LF</div>
-                        <div class="item">---</div>
-                        <div class="item">CF</div>
-                        <div class="item">---</div>
-                        <div class="item">RF</div>
-                        <div class="item">---</div>
-                        <div class="item">DH</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                        <div class="item">P</div>
-                        <div class="item">---</div>
-                    </div>
+                    <h3>Batters</h3>
+                    <ul id="batter-list" width="100%"></ul>
+                    <h3>Pitchers</h3>
+                    <ul id="pitcher-list" width="100"></ul>
                 </div>
             <div class="available">
                 <h2>Available Players</h2>
                 <div class="dropdown">
-                    <button onclick="myFunction()" class="drop">Batters</button>
+                    <button  id="dropButton" onclick="myFunction()" class="drop">Batters</button>
                     <div id="myDropdown" class="dropdown-event">
                         <button onclick="showAvailablePitchers()">Pitchers</button>
                         <button onclick="showAvailableBatters()">Batters</button>
@@ -71,12 +42,6 @@
                     <table id="player-table" width="100%">
                     </table>
                 </div>
-            </div>
-            <div class="recent">
-                <h2>Recent Picks</h2>
-                <table width="100%">
-                </table>
-            </div>
         </div>
     </div>
     <script src="static/js/draft_room.js"></script>
